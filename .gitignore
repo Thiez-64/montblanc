@@ -1,0 +1,9 @@
+/node_modules
+.ultra.cache.json
+/.vscode
+.DS_Store
+node_modules
+dist
+
+# Local Netlify folder
+.netlify
