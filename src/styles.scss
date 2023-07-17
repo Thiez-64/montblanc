@@ -56,6 +56,12 @@ body {
           font-style: normal;
           font-weight: 500;
           line-height: 183%;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 4px;
+          }
         }
       }
     }
@@ -218,6 +224,18 @@ body {
           position: relative;
           z-index: 2;
           width: 1380px;
+
+          @keyframes appear {
+            from {
+              scale: 0;
+            }
+            to {
+              scale: 1;
+            }
+          }
+
+          animation: appear 1s normal;
+
           .japan-logo-1 {
             width: 814px;
           }
@@ -246,6 +264,9 @@ body {
               align-items: center;
               gap: 40px;
 
+              .symbol {
+                cursor: pointer;
+              }
               .min_content,
               .max_content {
                 font-family: "Druk Wide";
@@ -261,24 +282,26 @@ body {
                 justify-content: space-between;
               }
 
-              span {
+              .span {
                 width: 226px;
                 height: 2px;
                 background-color: colors.$white;
                 position: relative;
               }
-              span:after {
-                content: "";
+              .span_progress {
                 position: absolute;
-                top: 0;
+                top: -2px;
                 left: 0;
-                width: 140px;
-                height: 2px;
+                width: 100%;
+                height: 4px;
                 background-color: colors.$gold;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: 300ms ease-in-out transform;
               }
             }
             .text {
-              color: colors.$white;
+              color: #92909b;
               font-family: "Montserrat", sans-serif;
               font-size: 14px;
               font-style: normal;
@@ -406,5 +429,21 @@ body {
         }
       }
     }
+  }
+  .round {
+    position: absolute;
+    top: 22%;
+    left: 47%;
+
+    @keyframes spin {
+      from {
+        transform: rotateZ(0deg);
+      }
+      to {
+        transform: rotateZ(360deg);
+      }
+    }
+
+    animation: spin 5s linear infinite;
   }
 }
